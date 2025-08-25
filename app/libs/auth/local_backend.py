@@ -1,3 +1,4 @@
+import os
 from .base import AuthBackend
 from werkzeug.security import check_password_hash
 
@@ -5,7 +6,7 @@ USERS = {
     'admin': {
         'id': 'admin',
         'username': 'admin',
-        'password_hash': 'scrypt:32768:8:1$HbGmOjnK1OtH9goI$985067b6809763fd91db9d0aeca8d6b63683c7f01d6b33d3ef1094e8ed4d0face469f74c4aff4042c2e9d8ff40b1a0e5ae6c3800e4c29f0df250e88bd88ef2ef',
+        'password_hash': os.environ.get('PASSWORD_HASH', ''),
         'attributes': {'role': 'admin'}
     },
 }
